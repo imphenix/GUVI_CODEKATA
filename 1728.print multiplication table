@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main() {
+    int N;
+    
+    if (scanf("%d", &N) == 1) {
+        for (int i = 1; i <= 10; i++) {
+            int multiple = N * i;
+            if (i == 10) {
+                printf("%d", multiple);
+            } else {
+                printf("%d ", multiple);
+            }
+        }
+    }
+    
+    return 0;
+}
