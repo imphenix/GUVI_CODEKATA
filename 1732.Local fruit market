@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main() {
+    int num_customers, num_fruits;
+    float fruit_price, customer_total, market_total = 0.0;
+
+    if (scanf("%d", &num_customers) != 1) return 0;
+
+    for (int i = 1; i <= num_customers; i++) {
+        customer_total = 0.0; // Reset total for each new customer
+        
+        if (scanf("%d", &num_fruits) != 1) break;
+
+        for (int j = 1; j <= num_fruits; j++) {
+
+            if (scanf("%f", &fruit_price) != 1) break;
+            customer_total += fruit_price;
+        }
+        printf("Total bill for Customer %d: $%.1f\n", i, customer_total);
+        market_total += customer_total;
+    }
+    printf("Total earnings for the day: $%.1f\n", market_total);
+
+    return 0;
+}
