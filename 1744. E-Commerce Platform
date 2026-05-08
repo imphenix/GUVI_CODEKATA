@@ -1,0 +1,29 @@
+#include <stdio.h>
+float calculateTotalCost(int items[], int n) {
+ if (n == 0)
+ return 0;
+ return items[n-1] + calculateTotalCost(items, n-1); // Recursive sum
+}
+float applyDiscount(float totalCost, int itemCount) {
+ float discountRate = 0.0;
+ if (itemCount >= 1 && itemCount <= 5)
+ discountRate = 0.05; // Tier 1: 5%
+ else if (itemCount >= 6 && itemCount <= 10)
+ discountRate = 0.10; // Tier 2: 10%
+ else if (itemCount > 10)
+ discountRate = 0.15; // Tier 3: 15%
+ float discountAmount = totalCost * discountRate;
+ return totalCost - discountAmount; // Final cost after discount
+}
+int main() {
+ int N;
+ scanf("%d", &N);
+ int items[N];
+ for (int i = 0; i < N; i++) {
+ scanf("%d", &items[i]);
+ }
+ float totalCost = calculateTotalCost(items, N);
+ float finalCost = applyDiscount(totalCost, N);
+ printf("%.2f", finalCost);
+ return 0;
+}
