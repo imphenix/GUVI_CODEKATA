@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+ int n;
+ scanf("%d", &n);
+ int *patientId = (int *)malloc(n * sizeof(int));
+ int *condition = (int *)malloc(n * sizeof(int));
+ int *room = (int *)malloc(n * sizeof(int));
+ for (int i = 0; i < n; i++) {
+ scanf("%d", &patientId[i]);
+ }
+ for (int i = 0; i < n; i++) {
+ scanf("%d", &condition[i]);
+ }
+ for (int i = 0; i < n; i++) {
+ if (condition[i] == 0) {
+ room[i] = 101 + i;
+ } else if (condition[i] == 1) {
+Neha (neha.25scse1180614@galgotiasuniversity.ac.in)
+ room[i] = 201 + i;
+ } else if (condition[i] == 2) {
+ room[i] = 301 + i;
+ }
