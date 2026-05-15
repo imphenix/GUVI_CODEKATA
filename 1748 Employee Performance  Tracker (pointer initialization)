@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+ int n, m, i, j;
+ int total_score;
+ scanf("%d", &n);
+ int *empIDs = (int*)malloc(n * sizeof(int));
+
+ for(i = 0; i < n; i++) {
+ scanf("%d", &empIDs[i]);
+ }
+ scanf("%d", &m);
+ int *weights = (int*)malloc(m * sizeof(int));
+ for(i = 0; i < m; i++) {
+ scanf("%d", &weights[i]);
+ }
+
+ int **ratings = (int**)malloc(n * sizeof(int*));
+
+ for(i = 0; i < n; i++) {
+ ratings[i] = (int*)malloc(m * sizeof(int));
+
+ for(j = 0; j < m; j++) {
+ scanf("%d", &ratings[i][j]);
+ }
+ }
+ for(i = 0; i < n; i++) {
+ total_score = 0;
+
+ // Summation loop: Rating * Weight
+ for(j = 0; j < m; j++) {
+ // Accessing value using pointer notation (ratings[i][j])
+ total_score += ratings[i][j] * weights[j];
+Neha (neha.25scse1180614@galgotiasuniversity.ac.in)
+ }
+ printf("Employee ID %d has a total score of %d\n", empIDs[i], total_score);
+ }
+ for(i = 0; i < n; i++) {
+ free(ratings[i]);
+ }
+ free(ratings);
+ free(empIDs);
+ free(weights);
+ return 0;
+}
