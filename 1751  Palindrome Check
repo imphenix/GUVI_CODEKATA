@@ -1,0 +1,25 @@
+    #include <stdio.h>
+#include <string.h>
+int main() {
+    char S[1000];
+    if (scanf("%s", S) != 1) return 0;
+
+    int left = 0;
+    int right = strlen(S) - 1;
+    int isPalindrome = 1;
+
+    while (left < right) {
+        if (S[left] != S[right]) {
+            isPalindrome = 0;
+            break;
+        }
+        left++;
+        right--;
+    }
+    if (isPalindrome) {
+        printf("Yes");
+    } else {
+        printf("No");
+    }
+    return 0;
+}
