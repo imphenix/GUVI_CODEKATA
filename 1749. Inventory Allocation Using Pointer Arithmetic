@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+ int S, C, X;
+ scanf("%d", &S);
+ int *stock = (int *)malloc(S * C * sizeof(int));
+ if (stock == NULL) {
+ return 1;
+ }
+ for (int i = 0; i < S * C; i++) {
+ scanf("%d", (stock + i));
+ }
+ scanf("%d", &X);
+ for (int i = 0; i < S * C; i++) {
+ *(stock + i) += X;
+ }
+ for (int i = 0; i < S; i++) {
+ for (int j = 0; j < C; j++) {
+ printf("%d", *(stock + i * C + j));
+ if (j < C - 1) printf(" ");
+ }
+ printf("\n");
+ }
+ free(stock);
+ return 0;
+}
