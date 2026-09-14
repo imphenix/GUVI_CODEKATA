@@ -1,0 +1,26 @@
+#include <stdlib.h>
+struct Book {
+ char title[100];
+ char author[100];
+ int year;
+};
+int main() {
+ int n;
+ scanf("%d", &n);
+ // Dynamically allocate memory for n books
+ struct Book *library = (struct Book *)malloc(n * sizeof(struct Book));
+ // Read book details
+ for (int i = 0; i < n; i++) {
+ scanf("%s %s %d", library[i].title, library[i].author, &library[i].year);
+ }
+ // Print book details in formatted way
+ for (int i = 0; i < n; i++) {
+ printf("Title: %s, Author: %s, Year: %d\n",
+library[i].title,
+library[i].author,
+library[i].year);
+ }
+ // Free memory
+ free(library);
+ return 0;
+}
